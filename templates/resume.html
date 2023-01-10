@@ -1,0 +1,46 @@
+{% load static %}
+<section id="resume" class="resume">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>{{sectionInMain.get_name_display}}</h2>
+        <p>{{sectionInMain.description}}</p>
+      </div>
+      {% if resume|length == 0 %}
+      <div class="d-flex justify-content-center">
+        <p>Aucune resume à présenter pour ce profile! </p>
+      </div>
+      {% else %}
+
+      <div class="row">
+        {% for id, value in categoriesResume %}
+        
+        <div class="col-lg-4">
+          <h3 class="resume-title d-flex justify-content-center">{{id}}</h3>   
+          {% comment %} <h3 class="resume-title">{{entree.category}}</h3> {% endcomment %}
+          
+            {% for entree in resume %}        
+            {% if id ==  entree.category %}
+            <div class="resume-item " >
+            <h4>{{entree.title}}</h4>
+            <h5>{{entree.startPeriode}} - {{entree.endPeriode}}</h5>
+            <p><em>{{entree.place}}</em></p>
+            {{works.key.entree.id}}
+            {% for key, value in works.items %}
+            {% if key == entree.id %}
+            {% for val in value %}
+            <ul>
+                <li> {{val}}</li>
+            </ul>
+            {% endfor %}      <!--endfor val-->
+            {% endif %}       <!--endif key-->
+            {% endfor %}      <!--endfor key,value-->            
+          </div>
+        {% endif %}       
+        {% endfor %}
+      </div>  <!--class row-->
+
+        {% endfor %}
+        </div>
+      {% endif %}
+    </div>    <!--div container"-->
+  </section>

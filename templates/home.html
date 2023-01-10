@@ -1,0 +1,26 @@
+{% load static %}
+{% if the_hero == None %}
+<section id="hero" class="d-flex flex-column justify-content-center" >
+  <div class="container" data-aos="zoom-in" data-aos-delay="100">
+    <h1>Welcome !</h1>
+    
+{% else %}
+<section id="hero" class="d-flex flex-column justify-content-center" style="width: 100%; height: 100vh; background: url('{{the_hero.userprofile.bg_wallpaper.url}}') top right no-repeat; background-size: cover; position: relative; ">
+  <div class="container" data-aos="zoom-in" data-aos-delay="100">
+    <h1>{{the_hero.userprofile.first_name}} {{the_hero.userprofile.last_name}}</h1>
+    <p>Je suis <span class="typed" data-typed-items="{% for item in i_am %} {{item.i_am}},{% endfor %}"></span></p>
+     <div class="social-links"> 
+      {% if the_hero.userprofile.twitter is not None %}<a href="{{the_hero.userprofile.twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+      {% else %}<a href="#hero" class="twitter"><i class="bx bxl-twitter"></i></a>{% endif %}
+      {% if the_hero.userprofile.facebook is not None %}<a href="{{the_hero.userprofile.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+      {% else %}<a href="#hero" class="facebook"><i class="bx bxl-facebook"></i></a>{% endif %}
+      {% if the_hero.userprofile.instagram is not None %}<a href="{{the_hero.userprofile.instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+      {% else %}<a href="#hero" class="instagram"><i class="bx bxl-instagram"></i></a>{% endif %}
+      {% if the_hero.userprofile.github is not None %}<a href="{{the_hero.userprofile.github}}" class="google-plus"><i class="bx bxl-github"></i></a>
+      {% else %}<a href="#hero" class="google-plus"><i class="bx bxl-github"></i></a>{% endif %}
+      {% if the_hero.userprofile.linkedin is not None %}<a href="{{the_hero.userprofile.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      {% else %}<a href="#hero"  class="linkedin"><i class="bx bxl-linkedin"></i></a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

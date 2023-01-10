@@ -1,0 +1,30 @@
+{% load static %}
+<section id="facts" class="facts">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>{{sectionInMain.get_name_display}}</h2>
+      <p>{{sectionInMain.description}}</p>
+    </div>
+    {% if facts|length == 0 %}
+    <div class="d-flex justify-content-center">
+    <p>Aucun fait à présenter pour ce profile! </p>
+    </div>
+    {% else %}
+    <div class="row d-flex justify-content-center" >
+      {% for fact in facts %}
+      {% if forloop.first %}
+        <div class="col-lg-3 col-md-6">
+      {% else %}
+        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+      {% endif %}
+          <div class="count-box " >
+            <i class="bi bi-{{fact.iconeb}}"></i>
+            <span data-purecounter-start="0" data-purecounter-end="{{fact.score}}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>{{fact.name}}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

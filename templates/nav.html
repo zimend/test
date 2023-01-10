@@ -1,0 +1,32 @@
+{% load static %}
+<!-- ======= Mobile nav toggle button ======= -->
+<!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+<i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex flex-column justify-content-center">
+
+    {% if user.is_authenticated %}
+    <nav id="navbar" class="navbar nav-menu">
+        <ul>
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Accueil</span></a>
+            </li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>A propos</span></a></li>
+            <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>CV</span></a></li>
+            <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i><span>Portfolio</span></a></li>
+            <li><a href="#certificats" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Certificats</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contacte</span></a></li>
+            <li><a href="{% url 'admin:index' %}" class="nav-link scrollto"><i class="bx bx-lock"></i> <span>Administration</span></a></li>
+            <li><a href="{% url 'logout' %}" class="nav-link scrollto"><i class="bi bi-door-closed"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav><!-- .nav-menu -->
+    {% else %}
+    <nav id="navbar" class="navbar nav-menu">
+        <ul>
+            <li><a href="{% url 'login' %}" class="nav-link scrollto active"><i class="bi bi-door-open"></i> <span>Login</span></a></li>
+            <li><a href="{% url 'admin:index' %}" class="nav-link scrollto"><i class="bx bx-lock"></i> <span>Administration</span></a></li>
+            <li><a href="{% url 'logout' %}" class="nav-link scrollto"><i class="bi bi-door-closed"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav>
+    {% endif %}
+</header><!-- End Header -->
+<!-- End nav section-->

@@ -1,0 +1,42 @@
+
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}  
+            <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#exampleModal").modal('show');
+                });
+            </script> 
+
+        {% else %}
+            <script>alert("{{ message }}")</script> 
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"> Parfait! Je vous contacterai bientôt.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Votre message a bien été envoyé. Merci à vous!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div> 
+  

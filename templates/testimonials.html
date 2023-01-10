@@ -1,0 +1,43 @@
+{% load static %}
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{{sectionInMain.get_name_display}}</h2>
+        <p>{{sectionInMain.description}}</p>
+      </div>
+      {% if testimonials|length == 0 %}
+      <div class="d-flex justify-content-center">
+        <p>Aucune Témoignage à afficher pour ce profile! </p>
+    </div>
+    {% else %}
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          {% for testimonial in testimonials %}
+          {% if testimonial.is_active %}
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              {% if not the_hero.testimonial.thumbnail == None %}
+              <img src="{% static 'img/testimonials/default_thumbnail.jpg' %}" class="testimonial-img" alt="">  
+              {% else %}
+              <img src="{{testimonial.thumbnail.url}}" class="testimonial-img" alt="">    
+              {% endif %} 
+              <h3>{{testimonial.name}}</h3>
+              <h4>{{testimonial.role}}</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                {{testimonial.quote}}
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div><!-- End testimonial item -->
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      {% endif %}
+
+    </div>
+  </section>

@@ -1,0 +1,69 @@
+{% load static %}
+<main id="main">
+  <!-- ======= About Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'about' %}       
+    {% include 'about.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End About Section -->
+
+  <!-- ======= Facts Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'facts' %}       
+    {% include 'facts.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End Facts Section -->
+
+  <!-- ======= Skills Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'skills' %}       
+    {% include 'skills.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End Skills Section -->
+
+  <!-- ======= Resume Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'resume' %}       
+    {% include 'resume.html' %}
+  {% endif %}
+  {% endfor %}
+<!-- End Resume Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'portfolio' %}       
+    {% include 'portfolio.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Certificats Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'certificats' %}       
+    {% include 'certificats.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End Certificats Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'testimonials' %}       
+    {% include 'testimonials.html' %}
+  {% endif %}
+  {% endfor %}
+  <!-- End Testimonials Section -->
+
+  <!-- ======= Contact Section ======= -->
+  {% for sectionInMain in sections %}       <!-- for section -->
+  {% if sectionInMain.name == 'contact' %}       
+    {% include 'contact.html' %}
+  {% endif %}
+  {% endfor %}
+
+
+  <!-- End Contact Section -->
+
+</main>

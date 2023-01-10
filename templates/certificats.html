@@ -1,0 +1,43 @@
+{% load static %}
+<section id="certificats" class="certificats">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>{{sectionInMain.get_name_display}}</h2>
+        <p>{{sectionInMain.description}}</p>
+      </div>
+      {% if certificates|length == 0 %}
+      <div class="d-flex justify-content-center">
+        <p>Aucun certificats n'est disponible actuellement pour ce profile! </p>
+      </div>
+      {% else %}
+      <div class="row d-flex justify-content-center">
+        {% for certificat in certificates %}
+        {% if forloop.first %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        {% else %} 
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+        {% endif %}
+        
+        <div class="icon-box iconbox-{{certificat.color_display}} "style="width: 100%;">
+          <div class="icon">
+            <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+              <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M 300, 300 m -300, 0 a 300,300 0 1,0 600,0 a 300,300 0 1,0 -600,0"></path>
+            </svg>
+            <i class="bx">{{certificat.organism|make_list|first}}</i>
+          </div>
+          {% if certificat.link_to_certificat == None %}
+          <h4><a href="#certificats">{{certificat.title}}</a></h4>
+          {% else %}
+            <h4><a href={{certificat.link_to_certificat}}>{{certificat.title}}</a></h4>
+          {% endif %}
+          <p>{{certificat.organism}} | {{certificat.date}}</p>
+          <hr>
+          <p>{{certificat.description}}</p>
+        </div>
+      </div>
+      
+      {% endfor %}
+    </div>
+      {% endif %}
+    </div>
+  </section>
